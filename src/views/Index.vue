@@ -8,12 +8,18 @@
 </template>
 
 <script>
+import Api from '@/api/index'
 export default {
   name: "Index",
   data(){
     return{
       url:window.location.href
     }
+  },
+  mounted() {
+    Api.Main.getList().then(res=>{
+      console.log('发送请求了',res);
+    })
   },
   methods:{
     toMain(){
@@ -24,7 +30,6 @@ export default {
     },
     toRouter(){
       this.$router.push('/main/child1')
-
     }
   }
 }

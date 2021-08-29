@@ -1,4 +1,3 @@
-import Vue from 'vue'
 import Axios from 'axios'
 
 
@@ -10,18 +9,12 @@ Axios.defaults.baseURL = '/'
 // 请求拦截器
 Axios.interceptors.request.use(
     config => {
-
-
       config.headers = {
-        'X-Content-Security': 'Bearer token'
+        'Authorization': 'Bearer token'
       }
-      Vue.NProgress.start()
-
       return config
     },
     error => {
-      Vue.NProgress.done()
-
       return error
     }
 )
@@ -29,12 +22,10 @@ Axios.interceptors.request.use(
 // 相应拦截器
 Axios.interceptors.response.use(
     resopnse => {
-      Vue.NProgress.done()
 
       return resopnse.data
     },
     error => {
-      Vue.NProgress.done()
 
       const res = error.response || {}
       const data = res.data || {}

@@ -16,12 +16,12 @@ export default new Router({
       component: () => import('@/views/main/Main'),
       children: [
         {
-          // 当 /router/:id/child1 匹配成功，
+          // 当 /main/child1 匹配成功，
           path: 'child1',
           component: () => import('@/views/router/Child1')
         },
         {
-          // 当 /router/:id/child1 匹配成功，
+          // 当 /main/child1 匹配成功，
           path: 'child2',
           component: () => import('@/views/router/Child2')
         },

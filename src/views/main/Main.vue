@@ -7,8 +7,6 @@
       <h2>这是二级路由下的窗口</h2>
       <router-view></router-view>
     </div>
-
-
   </div>
 
 </template>
