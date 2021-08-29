@@ -67,4 +67,12 @@ const router =  new Router({
   ]
 })
 
+router.beforeEach((to,from,next)=>{
+  if(to.name === 'Login'){
+    next('/main/child1')
+  }else{
+    next()
+  }
+})
+
 export default router

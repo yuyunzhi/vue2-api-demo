@@ -7,12 +7,15 @@
 
 <script>
 export default {
-name: "Child1",
-  methods:{
-    gotoChild2(){
+  name: "Child1",
+  mounted() {
+    console.log(this.$router);
+  },
+  methods: {
+    gotoChild2() {
       this.$router.push('/main/child2')
     },
-    gotoIndex(){
+    gotoIndex() {
       this.$router.push('/')
 
     }

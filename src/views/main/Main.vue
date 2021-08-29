@@ -29,7 +29,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import '../../styles/style';
+@import '../../styles/normalize';
 
 
 //@import '../../styles/style';
