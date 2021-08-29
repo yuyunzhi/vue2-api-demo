@@ -6,6 +6,7 @@
     <el-button @click="toLogin">跳转到Login</el-button>
     <el-button @click="toMain" type="primary">跳转到Main</el-button>
     <el-button @click="toRouter" type="success">跳转到Router</el-button>
+    <el-button @click="toStore" type="success">跳转到Store</el-button>
 
   </div>
 </template>
@@ -36,6 +37,9 @@ export default {
     },
     toRouter(){
       this.$router.push('/main/child1')
+    },
+    toStore(){
+      this.$router.push('/store')
     }
   }
 }

@@ -4,6 +4,7 @@ const plugin = {
   install (Vue,options) {
 
     Vue.prototype.$api=Api
+    Vue.prototype.$eventBus = new Vue()
 
     Vue.prototype.$log=()=>{
       console.log('plugin.install 执行了$log');

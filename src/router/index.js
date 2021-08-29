@@ -64,6 +64,14 @@ const router =  new Router({
         }
       }
     },
+    {
+      path: '/store',
+      name: 'Store',
+      component: () => import('@/views/store/Store'),
+      meta: {
+        title: 'Store'
+      }
+    },
   ]
 })
 
