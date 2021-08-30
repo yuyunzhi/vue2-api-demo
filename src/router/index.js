@@ -78,7 +78,6 @@ const router =  new Router({
 
 router.beforeEach((to,from,next)=>{
   console.log('router.beforeEach isLogin -----',store.state.isLogin);
-
   if(store.state.isLogin === false && to.path !== '/login'){
     next({ path: '/login' })
   }else{
