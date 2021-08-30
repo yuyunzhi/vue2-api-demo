@@ -9,7 +9,9 @@ const plugin = {
     Vue.prototype.$log=()=>{
       console.log('plugin.install 执行了$log');
     }
-    console.log('options',options);
+
+    options.value
+    // console.log('options',options);
 
     Vue.mixin({})
 

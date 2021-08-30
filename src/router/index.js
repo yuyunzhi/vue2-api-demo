@@ -1,12 +1,24 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
+import store from '@/store/index'
 Vue.use(Router)
 
 const router =  new Router({
   routes: [
     {
-      path: '/',
+      path: '/login',
+      name: 'Login',
+      component: () => import('@/views/login/Login'),
+      meta: {
+        pageId: '30034',
+        title: '选择课文页面666666',
+        pageIdMap: {
+          publishHomework: '30034',
+        }
+      }
+    },
+    {
+      path: '/index',
       name: 'Index',
       component: () => import('@/views/Index'),
       // redirect: { name: 'Child2' }, 当走到/ 会自动匹配name为 Child2的页面
@@ -52,18 +64,7 @@ const router =  new Router({
         },
       ]
     },
-    {
-      path: '/login',
-      name: 'Login',
-      component: () => import('@/views/login/Login'),
-      meta: {
-        pageId: '30034',
-        title: '选择课文页面666666',
-        pageIdMap: {
-          publishHomework: '30034',
-        }
-      }
-    },
+
     {
       path: '/store',
       name: 'Store',
@@ -76,8 +77,10 @@ const router =  new Router({
 })
 
 router.beforeEach((to,from,next)=>{
-  if(to.name === 'Login'){
-    next('/main/child1')
+  console.log('router.beforeEach isLogin -----',store.state.isLogin);
+
+  if(store.state.isLogin === false && to.path !== '/login'){
+    next({ path: '/login' })
   }else{
     next()
   }
