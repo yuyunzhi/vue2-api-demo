@@ -36,6 +36,7 @@ export default {
     ]),
   },
   methods:{
+
     login(){
       this.$store.commit('login')
     },
@@ -44,18 +45,38 @@ export default {
       this.$router.push('/login')
     },
     toMain(){
+      if(!this.isLogin){
+        this.$message.error('请先登录');
+        return
+      }
       this.$router.push('/main')
     },
     toLogin(){
+      if(!this.isLogin){
+        this.$message.error('请先登录');
+        return
+      }
       this.$router.push('/login')
     },
     toRouter(){
+      if(!this.isLogin){
+        this.$message.error('请先登录');
+        return
+      }
       this.$router.push('/main/child1')
     },
     toStore(){
+      if(!this.isLogin){
+        this.$message.error('请先登录');
+        return
+      }
       this.$router.push('/store')
     },
     toRoot(){
+      if(!this.isLogin){
+        this.$message.error('请先登录');
+        return
+      }
       this.$router.push('/')
 
     }
