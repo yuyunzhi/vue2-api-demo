@@ -30,6 +30,18 @@ const router =  new Router({
       }
     },
     {
+      path: '/api',
+      name: 'Api',
+      component: () => import('@/views/watch-computed/Api'),
+      meta: {
+        pageId: '30034',
+        title: '选择课文页面666666',
+        pageIdMap: {
+          publishHomework: '30034',
+        }
+      }
+    },
+    {
       path: '/index',
       name: 'Index',
       component: () => import('@/views/Index'),

@@ -3,8 +3,8 @@
     <h1>这是首页一级路由下</h1>
     是否登陆了？ {{$store.state.isLogin}}
 
-    <el-button @click="login"> 输入密码登陆 </el-button>
-    <el-button @click="logout"> 退出登陆 </el-button>
+    <el-button @click="login"> 登陆 </el-button>
+    <el-button @click="logout"> 退出 </el-button>
 
     <div>
       eventBus : {{eventBus}}
@@ -30,6 +30,9 @@
       <hr>
       <div>
         测试 生命周期 : <el-button @click="toLifeCircle" type="success">跳转到/lifeCircle</el-button>
+      </div>
+      <div>
+        测试 watch computed : <el-button @click="toApi" type="success">跳转到/api</el-button>
       </div>
     </div>
   <hr>
@@ -60,7 +63,9 @@ export default {
     })
   },
   methods:{
-
+    toApi(){
+      this.$router.push('/api')
+    },
     login(){
       this.$store.commit('login')
     },
