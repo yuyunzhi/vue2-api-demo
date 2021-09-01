@@ -18,6 +18,18 @@ const router =  new Router({
       }
     },
     {
+      path: '/lifeCircle',
+      name: 'LifeCircle',
+      component: () => import('@/views/life/LifeCircle'),
+      meta: {
+        pageId: '30034',
+        title: '选择课文页面666666',
+        pageIdMap: {
+          publishHomework: '30034',
+        }
+      }
+    },
+    {
       path: '/index',
       name: 'Index',
       component: () => import('@/views/Index'),

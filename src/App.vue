@@ -7,10 +7,16 @@
     <el-button @click="logout"> 退出登陆 </el-button>
 
     <div>
+      eventBus : {{eventBus}}
+    </div>
+    <div>
       mapState - count:{{count}}
     </div>
     <div>
       mapState - isLogin:{{isLogin}}
+    </div>
+    <div>
+      todoLength - isLogin:{{$store.getters.doneTodos}}
     </div>
     <hr>
     <div>
@@ -18,10 +24,18 @@
       <el-button @click="toLogin">跳转到/login</el-button>
       <el-button @click="toMain" type="primary">跳转到/main</el-button>
       <el-button @click="toRouter" type="success">跳转到/main/child1</el-button>
-      <el-button @click="toStore" type="success">跳转到/store</el-button>
+      <div>
+        测试 store api : <el-button @click="toStore" type="success">跳转到/store</el-button>
+      </div>
+      <hr>
+      <div>
+        测试 生命周期 : <el-button @click="toLifeCircle" type="success">跳转到/lifeCircle</el-button>
+      </div>
     </div>
   <hr>
-    <router-view></router-view>
+    <div style="border:1px solid red">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -35,6 +49,16 @@ export default {
       'isLogin'
     ]),
   },
+  data(){
+    return {
+      eventBus:0
+    }
+  },
+  mounted() {
+    this.$eventBus.$on('update',(data)=>{
+        this.eventBus = data
+    })
+  },
   methods:{
 
     login(){
@@ -43,6 +67,9 @@ export default {
     logout(){
       this.$store.commit('logout')
       this.$router.push('/login')
+    },
+    toLifeCircle(){
+      this.$router.push('/lifeCircle')
     },
     toMain(){
       if(!this.isLogin){
