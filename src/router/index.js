@@ -27,4 +27,9 @@ router.beforeEach((to, from, next) => {
   }
 });
 
+router.beforeResolve((to, from, next) => {
+  console.log("beforeResolve");
+  next();
+});
+
 export default router;
