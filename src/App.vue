@@ -18,21 +18,29 @@
     <div>
       todoLength - isLogin:{{$store.getters.doneTodos}}
     </div>
-    <hr>
-    <div>
-      <el-button @click="toRoot">跳转到根目录/</el-button>
-      <el-button @click="toLogin">跳转到/login</el-button>
-      <el-button @click="toMain" type="primary">跳转到/main</el-button>
-      <el-button @click="toRouter" type="success">跳转到/main/child1</el-button>
-      <div>
+
+    <div style="marginTop: 20px">
+
+      <div style="marginBottom: 20px">
+        <el-button @click="toRoot">跳转到根目录/</el-button>
+        <el-button @click="toLogin">跳转到/login</el-button>
+        <el-button @click="toMain" type="primary">跳转到/main</el-button>
+        <el-button @click="toRouter" type="success">跳转到/main/child1</el-button>
+      </div>
+
+      <div style="marginBottom: 20px">
         测试 store api : <el-button @click="toStore" type="success">跳转到/store</el-button>
       </div>
-      <hr>
-      <div>
+      <div style="marginBottom: 20px">
         测试 生命周期 : <el-button @click="toLifeCircle" type="success">跳转到/lifeCircle</el-button>
       </div>
-      <div>
+      <div style="marginBottom: 20px">
         测试 watch computed : <el-button @click="toApi" type="success">跳转到/api</el-button>
+      </div>
+      <div style="marginBottom: 20px">
+        测试 render 函数 : <el-button  type="success">
+        <router-link to="/render">跳转到/render</router-link>
+      </el-button>
       </div>
     </div>
   <hr>
