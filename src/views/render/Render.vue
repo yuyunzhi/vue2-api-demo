@@ -6,11 +6,19 @@ export default {
       value:6666
     }
   },
+  methods:{
+    handleClick(){
+      console.log('点击了');
+    }
+  },
   render(createElement) {
     return createElement(
         'div',
         {
-          ref:'refValue'
+          ref:'refValue',
+          on:{
+            click:this.handleClick
+          }
         },
         [
             createElement(
