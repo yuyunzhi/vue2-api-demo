@@ -23,7 +23,10 @@
 
       <div style="marginbottom: 20px">
         测试 store api :
-        <el-button @click="toStore" type="success">跳转到/store</el-button>
+
+        <el-button type="success">
+          <router-link to="/store">跳转到/store</router-link></el-button
+        >
       </div>
       <div style="marginbottom: 20px">
         测试 生命周期 :
@@ -40,6 +43,20 @@
         <el-button type="success">
           <router-link to="/render">跳转到/render</router-link>
         </el-button>
+      </div>
+
+      <div style="marginbottom: 20px">
+        测试 transition 函数 :
+        <el-button type="success">
+          <router-link :to="{ path: '/transition/1', query: { id: 1 } }"
+            >跳转到/transition</router-link
+          >
+        </el-button>
+      </div>
+
+      <div style="marginbottom: 20px">
+        测试 render 函数 :
+        <el-button type="success" @click="goBack">返回</el-button>
       </div>
     </div>
     <hr />
@@ -70,8 +87,11 @@ export default {
     });
   },
   methods: {
+    goBack() {
+      this.$router.back();
+    },
     toApi() {
-      this.$router.push("/api");
+      this.$router.push({ path: "/api", query: { id: 2, b: 3 } });
     },
     login() {
       this.$store.commit("login");
