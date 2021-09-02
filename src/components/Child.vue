@@ -1,5 +1,7 @@
 <template>
-  <div>{{this.arr}}</div>
+  <div>
+    <div>arr:{{this.arr}}</div>
+  </div>
 </template>
 
 <script>
@@ -9,6 +11,11 @@ name: "Chid",
   mounted() {
     console.log('[child] inject xxx',this.xxx);
     console.log('[child] inject arr',this.arr);
+  },
+  methods:{
+    updateValue(){
+      this.m.value = Math.random()
+    }
   }
 }
 </script>

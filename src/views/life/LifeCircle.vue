@@ -8,6 +8,10 @@
       <div v-for="(item , index) in arr" :key="index">{{ item}}</div>
     </div>
     <HelloWorld/>
+
+    <div>
+       孙子组件修改value , 爷爷组件会修改  : {{value}}
+    </div>
     <el-button @click="update">修改数据 update</el-button>
     <el-button @click="updateArr">修改数据Arr update</el-button>
 
@@ -30,7 +34,8 @@ export default {
   data(){
     return {
       xxx : 0,
-      arr:[1,2,3,4]
+      arr:[1,2,3,4],
+      value:123
     }
   },
   watch:{

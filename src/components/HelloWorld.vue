@@ -4,7 +4,6 @@
     <div>
       这是parent: {{this.arr}}
     </div>
-
     <div>
       这是child : <Child/>
     </div>
