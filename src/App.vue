@@ -60,8 +60,16 @@
       </div>
     </div>
     <hr />
+
+    <div @click="deleteFirstListItem">删除第一项</div>
+    <div v-for="(n, index) in list" :key="index" @click="deleteIndex(index)">
+      {{ n }}
+    </div>
+
     <div style="border: 1px solid red">
-      <router-view></router-view>
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
     </div>
   </div>
 </template>
@@ -77,7 +85,11 @@ export default {
   data() {
     return {
       eventBus: 0,
+      list: ["a", "b", "c"],
     };
+  },
+  activated(s) {
+    console.log("触发activated", s);
   },
   mounted() {
     const a = 12;
@@ -87,6 +99,12 @@ export default {
     });
   },
   methods: {
+    deleteFirstListItem() {
+      this.list.splice(1, 1);
+    },
+    deleteIndex(index) {
+      this.list.splice(index, 1);
+    },
     goBack() {
       this.$router.back();
     },
